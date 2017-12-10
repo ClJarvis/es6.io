@@ -27,7 +27,7 @@
     }
 
     .box.opening {
-      width:500px;
+      width:600px;
       height:500px;
     }
 
@@ -55,27 +55,13 @@
 
   <div class="wrap">
     <div class="box">
-      <h2>Wes Bos</h2>
-      <p class="social">@wesbos</p>
+      <h2>Chris Jarvis</h2>
+      <p class="social">@JarvisScript</p>
     </div>
   </div>
 
   <script>
-    const box = document.querySelector('.box');
-    box.addEventListener('click', function() {
-      let first = 'opening';
-      let second = 'open';
 
-      if(this.classList.contains(first)) {
-        [first, second] = [second, first];
-      }
-
-      this.classList.toggle(first);
-      setTimeout(() => {
-        console.log(this);
-        this.classList.toggle(second);
-      }, 500);
-    });
   </script>
 
 </body>
