@@ -22,8 +22,29 @@
     JS: 'JavaScript'
   };
 
-  const first = 'Wes';
-  const last = 'Bos';
+  function addAlphabetSoup(strings, ...values){
+    const abbrev = values.map(value=> {
+      if(dict[value]) {
+        return `<abbr title="${dict[value]}">${value}</abbr>`
+      }
+      return value;
+    });
+      return strings.reduce((sentence, string, i) => {
+        return `${sentence}${string}${abbrev[i] || ''}`;
+      }, '');
+  }
+
+  const first = 'Chris';
+  const last = 'Jarvis';
+  const sentence = addAlphabetSoup`Hello my name is ${first} ${last} and I love to build with ${'HTML'}, ${'CSS'}, and ${'JS'}.`;
+
+  const bio = document.querySelector('.bio');
+    const p = document.createElement('p');
+    p.innerHTML = sentence;
+    bio.appendChild(p);
+
+
+  console.log(sentence);
 
 </script>
 </body>
