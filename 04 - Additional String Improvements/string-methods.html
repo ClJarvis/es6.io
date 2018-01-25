@@ -24,14 +24,14 @@ const colour = 'Royal Blue';
 // .repeat()
 
 function leftPad(str, length = 20) {
-  return `→ ${' '.repeat(length - str.length)}${str}`;
+  return `→ ${''.repeat(length - str.length)}${str}`;
 }
 
 console.log(leftPad(make));
 console.log(leftPad(model));
 console.log(leftPad(colour));
 
-
+// `${'🔥 ' * 5}`.repeat(10) + ' Batman!'; using repeat in console
 </script>
 
 </body>
