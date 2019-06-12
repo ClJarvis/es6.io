@@ -10,7 +10,12 @@
 const race = '100m Dash';
 const winners = ['Hunter Gath', 'Singa Song', 'Imda Bos'];
 
+const win = winners.map((winner, i) => ({name: winner, race: race, place: i + 1}));
 
+const ages = [25, 24, 45, 656,3,66, 77];
+
+const old = ages.filter(age => age >= 60);
+console.log(old);
 
 </script>
 </body>
