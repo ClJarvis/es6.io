@@ -18,46 +18,48 @@
     { name: 'Addy Osmani', twitter: '@addyosmani', bio: 'Googler' },
   ];
 
+  //create new Promise
   function getPostById(id) {
-    // create a new promise
     return new Promise((resolve, reject) => {
-      // using a settimeout to mimick a databse
-      setTimeout(() => {
-        // find the post we want
-        const post = posts.find(post => post.id === id);
-        if(post) {
-          resolve(post); // send the post back
-        } else {
-          reject(Error('No Post Was Found!'));
-        }
-      }, 200);
+    //using a settime out to mimic a database
+    setTimeout(() => {
+    // find the post
+      const post = posts.find(post => post.id === id);
+      if(post){
+        resolve(post); // send post back
+      } else {
+        reject(Error("No post was found!"));
+      }
+    }, 200);
     });
   }
 
-  function hydrateAuthor(post) {
-    // create a new promise
+  function hydrateauthor(post) {
+    //create new promose
     return new Promise((resolve, reject) => {
-      // find the author
+      // find author
+      //debugger;
       const authorDetails = authors.find(person => person.name === post.author);
       if(authorDetails) {
-        // "hydrate" the post object with the author object
+        //hydrate author Give more details besides name. The post object with author object
         post.author = authorDetails;
         resolve(post);
-      } else {
+        } else {
         reject(Error('Can not find the author'));
       }
     });
   }
 
-  getPostById(3)
+  getPostById(2)
     .then(post => {
-      return hydrateAuthor(post);
+      //console.log(post);
+      return hydrateauthor(post);
     })
     .then(post => {
       console.log(post);
     })
     .catch(err => {
-      console.error(err);
+      console.log(err);
     });
 
 
