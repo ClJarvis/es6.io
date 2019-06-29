@@ -6,20 +6,22 @@
 </head>
 <body>
 <script>
-  const person = { name: 'Wes', age: 100 };
-  const personProxy = new Proxy(person, {
-    get(target, name) {
-      // console.log('someone is asking for ', target, name);
-      return target[name].toUpperCase();
-    },
-    set(target, name, value) {
-      if(typeof value === 'string') {
-        target[name] = value.trim().toUpperCase() + '✂️';
-      }
+const person = { name: 'wes', age: 100};
+const personProxy = new Proxy(person, {
+  get(target, name) {
+    //console.log("someome is asking for", target, name);
+    return target[name].toUpperCase();
+  },
+  set(target, name, value){
+    if(typeof value === 'string'){
+      target[name] = value.trim();
     }
-  });
+  }
+});
 
-  personProxy.name = 'Wesley';
+
+personProxy.name = 'wesley';
+
 </script>
 </body>
 </html>
